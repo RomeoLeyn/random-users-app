@@ -8,8 +8,6 @@ export const findByLocation = async(
     const response = await axios.get<ResponseWeather>(
       `${process.env.REACT_APP_WEATHER_API_URL}?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m`,
     );
-    
-    console.log(process.env.REACT_APP_WEATHER_API_URL);
 
     return {
       latitude: response.data.latitude,

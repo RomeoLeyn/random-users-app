@@ -28,7 +28,6 @@ export const enrichUsersWithWeather = async (users: User[]) => {
 
 export const getRandomUsers = async (page: number) => {
     const response = await axios.get<ResponseUsers>(`${process.env.REACT_APP_RANDOM_USERS_API_URL}/?results=${LIMIT_USER_LOAD}&page=${page}`);
-    console.log(process.env.REACT_APP_RANDOM_USERS_API_URL);
     const enrichUsers = await enrichUsersWithWeather(response.data.results);
     return {
         results: enrichUsers,
